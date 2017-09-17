@@ -76,7 +76,7 @@ names(CleanSet) <- gsub("fBodyGyro","Frequency-Body-Gyroscope", names(CleanSet))
 names(CleanSet) <- gsub("fBodyBodyAcc","Frequency-BodyBody-Accelerometer", names(CleanSet))
 names(CleanSet) <- gsub("fBodyBodyGyro","Frequency-BodyBody-Gyroscope", names(CleanSet))
 
-write.table(CleanSet, "cleaned_merged_data.txt")
+write.table(CleanSet, "./CleaningDataProject/cleaned_merged_data.txt")
 
 # NEXT: creates a second, independent tidy data 
 #     set with the average of each variable for each activity and each subject.
@@ -84,4 +84,4 @@ write.table(CleanSet, "cleaned_merged_data.txt")
 SummarizedData <- CleanSet[,lapply(.SD,mean),by="SubjectID,Activity"]
 SummarizedData <- setorder(SummarizedData, SubjectID, Activity)
 
-write.table(SummarizedData, "tidy_set.txt", row.names = FALSE)
+write.table(SummarizedData, "./CleaningDataProject/tidy_set.txt", row.names = FALSE)
